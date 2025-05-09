@@ -15,7 +15,7 @@ This repository contains training materials for Kubernetes.
 
 To use these materials, start by setting up a Kubernetes cluster (either on GKE or any prefered solution). Files in `cluster/` directory is just an example. 
 
-Then, you can proceed with the lab exercises in the `labs/` directory. The `slides.pdf` and `list-of-topics.pdf` files can be used for reference.
+Then, you can proceed with the lab exercises in the `labs/` directory. The `slides.pdf` can be used for reference.
 
 ## Contributing
 
