@@ -1,30 +1,51 @@
 # Connection to Kubernetes Cluster Setup Guide
 
-This guide will help you set up `kubectl` and connect to your Kubernetes cluster.
+This guide will help you get started with a couple of K8s implementation - k3s, minikube, and connection to AKS.
 
-## Step 1: Install kubectl
+## K3s
 
-Next, install kubectl, which is the Kubernetes command-line tool. You can install it by following instructions from [this link](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/).
+Lightweight Kubernetes. Easy to install, half the memory, all in a binary of less than 100 MB. K3s is a fully compliant Kubernetes distribution with the following enhancements:
 
-## Step 2: Update kubeconfig with cluster params - TODO
+- Distributed as a single binary or minimal container image.
+- Lightweight datastore based on sqlite3 as the default storage backend. etcd3, MySQL, and Postgres are also available.
+- Wrapped in simple launcher that handles a lot of the complexity of TLS and options.
+- Secure by default with reasonable defaults for lightweight environments.
+- Operation of all Kubernetes control plane components is encapsulated in a single binary and process, allowing K3s to automate and manage complex cluster operations like distributing certificates.
+- External dependencies have been minimized; the only requirements are a modern kernel and cgroup mounts.
+- Packages the required dependencies for easy "batteries-included" cluster creation:
+  - containerd / cri-dockerd container runtime (CRI)
+  - Flannel Container Network Interface (CNI)
+  - CoreDNS Cluster DNS
+  - Traefik Ingress controller
+  - ServiceLB Load-Balancer controller
+  - Kube-router Network Policy controller
+  - Local-path-provisioner Persistent Volume controller
+  - Spegel distributed container image registry mirror
+  - Host utilities (iptables, socat, etc)
 
-Connect to the cluster by updating the kubeconfig:
+To get started, go to the below link:
 
-```shell
-gcloud container clusters get-credentials LOCATION --zone ZONE --project PROJECT_NAME
-```
+https://docs.k3s.io/quick-start
 
-## Step 3: Test Connection
+## Minikube
 
-Finally, test your connection to the Kubernetes cluster:
+minikube is local Kubernetes, focusing on making it easy to learn and develop for Kubernetes.
 
-```shell
-kubectl get nodes
-```
+All you need is Docker (or similarly compatible) container or a Virtual Machine environment, and Kubernetes is a single command away: minikube start
 
-If everything is set up correctly, this command should return a list of the nodes in your cluster.
+What you’ll need:
 
-# Understanding kubectl Command Structure
+- 2 CPUs or more
+- 2GB of free memory
+- 20GB of free disk space
+- Internet connection
+- Container or virtual machine manager, such as: Docker, QEMU, Hyperkit, Hyper-V, KVM, Parallels, Podman, VirtualBox, or VMware Fusion/Workstation
+
+To get started, visit the following link:
+
+https://minikube.sigs.k8s.io/docs/start/?arch=%2Fwindows%2Fx86-64%2Fstable%2F.exe+download
+
+## Understanding kubectl Command Structure
 
 The `kubectl` command line tool is used to interact with Kubernetes clusters. The general structure of a `kubectl` command is as follows:
 
